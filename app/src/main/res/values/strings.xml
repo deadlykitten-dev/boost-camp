@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">BoostCamp</string>
+    <string name="app_name">부스트캠프 사전과제</string>
+
+    <string name="all_search">검색</string>
+    <string name="hint_edit_text_search">영화와 관련된 검색어를 입력해주세요.</string>
 </resources>
