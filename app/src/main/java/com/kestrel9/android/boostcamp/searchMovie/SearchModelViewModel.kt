@@ -12,23 +12,15 @@ import com.kestrel9.android.boostcamp.data.SearchDataSource
  * Description:
  */
 class SearchModelViewModel(val searchRepository: SearchDataSource) : ViewModel() {
-
-    val query = MutableLiveData<String>()
     val testSting = MutableLiveData<String>()
 
     fun start() {
-
-    }
-
-    fun search() {
-        searchRepository.getMovie(query.value.toString(),
-
-            success = {
-                testSting.postValue(it.toString())
-            },
-
-            failed = {
-                testSting.postValue("실패")
-            })
+        searchRepository.getMovie("엑스맨",
+                success = {
+                    testSting.postValue(it.total.toString())
+                },
+                failed = {
+                    testSting.postValue("실패")
+                })
     }
 }
