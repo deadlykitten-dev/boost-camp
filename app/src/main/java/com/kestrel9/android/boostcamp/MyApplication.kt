@@ -1,7 +1,7 @@
 package com.kestrel9.android.boostcamp
 
 import android.app.Application
-import com.kestrel9.android.boostcamp.di.appModule
+import com.kestrel9.android.boostcamp.di.appModules
 import org.koin.android.ext.android.startKoin
 
 /**
@@ -17,8 +17,6 @@ class MyApplication : Application() {
         super.onCreate()
 
         // start Koin context
-        startKoin(
-            this, listOf(appModule)
-        )
+        startKoin(this, appModules)
     }
 }
