@@ -6,13 +6,16 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.kestrel9.android.boostcamp.searchMovie.SearchModelViewModel" />
+
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".searchMovie.SearchMovieActivity">
-
 
         <LinearLayout
             android:id="@+id/ll_search_bar"
@@ -24,11 +27,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/hint_edit_text_search"
-                android:inputType="text" />
+                android:inputType="text"
+                android:text="@={viewModel.query}" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="@{()-> viewModel.search()}"
                 android:text="@string/all_search" />
         </LinearLayout>
 
