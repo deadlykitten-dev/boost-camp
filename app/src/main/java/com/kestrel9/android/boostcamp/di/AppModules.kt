@@ -7,7 +7,7 @@ import com.kestrel9.android.boostcamp.network.SearchMovieApi
 import com.kestrel9.android.boostcamp.searchMovie.SearchModelViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.android.viewmodel.ext.koin.viewModel
+import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.Module
 import org.koin.dsl.module.module
 import retrofit2.Retrofit

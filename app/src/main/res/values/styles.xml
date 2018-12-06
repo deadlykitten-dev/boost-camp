@@ -8,4 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Widget.Movie.RatingBar.Small" parent="android:Widget.Material.RatingBar.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:isIndicator">false</item>
+        <item name="android:numStars">5</item>
+        <item name="android:stepSize">0.5</item>
+        <item name="android:max">6</item>
+    </style>
+
 </resources>

@@ -1,8 +1,9 @@
 package com.kestrel9.android.boostcamp.searchMovie
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.kestrel9.android.boostcamp.data.SearchDataSource
+import com.kestrel9.android.boostcamp.network.Movie
 
 /**
  * BoostCamp
@@ -14,7 +15,7 @@ import com.kestrel9.android.boostcamp.data.SearchDataSource
 class SearchModelViewModel(val searchRepository: SearchDataSource) : ViewModel() {
 
     val query = MutableLiveData<String>()
-    val testSting = MutableLiveData<String>()
+    val movies = MutableLiveData<List<Movie>>()
 
     fun start() {
 
@@ -24,11 +25,10 @@ class SearchModelViewModel(val searchRepository: SearchDataSource) : ViewModel()
         searchRepository.getMovie(query.value.toString(),
 
             success = {
-                testSting.postValue(it.toString())
+                movies.postValue(it)
             },
 
             failed = {
-                testSting.postValue("실패")
             })
     }
 }

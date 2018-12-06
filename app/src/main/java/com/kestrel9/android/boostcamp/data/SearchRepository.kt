@@ -1,5 +1,6 @@
 package com.kestrel9.android.boostcamp.data
 
+import com.kestrel9.android.boostcamp.network.Movie
 import com.kestrel9.android.boostcamp.network.MovieResponse
 import com.kestrel9.android.boostcamp.network.SearchMovieApi
 import retrofit2.Call
@@ -14,7 +15,12 @@ import retrofit2.Response
  * Description:
  */
 class SearchRepository(private val movieApi: SearchMovieApi) : SearchDataSource {
-    override fun getMovie(query: String, success: (movieResponse: MovieResponse) -> Unit, failed: (errorCode: String) -> Unit) {
+
+    override fun getMovie(
+        query: String,
+        success: (listMovie: List<Movie>) -> Unit,
+        failed: (errorCode: String) -> Unit
+    ) {
         movieApi.getMovieList(query = query).enqueue(object : Callback<MovieResponse> {
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
                 failed("")
@@ -22,10 +28,9 @@ class SearchRepository(private val movieApi: SearchMovieApi) : SearchDataSource 
 
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 response.body()?.let {
-                    success(it)
+                    success(it.movies)
                 }
             }
         })
-
     }
 }
