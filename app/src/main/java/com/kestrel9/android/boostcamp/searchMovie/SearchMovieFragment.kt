@@ -2,10 +2,16 @@ package com.kestrel9.android.boostcamp.searchMovie
 
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.DividerItemDecoration
+import com.kestrel9.android.boostcamp.BR
 import com.kestrel9.android.boostcamp.R
 import com.kestrel9.android.boostcamp.base.BaseFragment
+import com.kestrel9.android.boostcamp.base.BaseRecyclerViewAdapter
 import com.kestrel9.android.boostcamp.databinding.FragmentSearchMovieBinding
-import org.koin.android.viewmodel.ext.android.sharedViewModel
+import com.kestrel9.android.boostcamp.databinding.ItemListMovieBinding
+import com.kestrel9.android.boostcamp.network.Movie
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+
 
 /**
  * BoostCamp
@@ -27,6 +33,14 @@ class SearchMovieFragment : BaseFragment<FragmentSearchMovieBinding>(R.layout.fr
         binding.run {
             viewModel = searchModelViewModel
             setLifecycleOwner(activity)
+            rvListMovie.run {
+                adapter = object : BaseRecyclerViewAdapter<Movie, ItemListMovieBinding>(
+                    layoutRes = R.layout.item_list_movie,
+                    bindingVarianceId = BR.movie
+                ) {}
+                addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+            }
+
         }
     }
 }

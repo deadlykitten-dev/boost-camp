@@ -5,7 +5,7 @@ import com.kestrel9.android.boostcamp.R
 import com.kestrel9.android.boostcamp.base.BaseActivity
 import com.kestrel9.android.boostcamp.databinding.ActivitySearchMovieBinding
 import com.kestrel9.android.boostcamp.util.replaceFragmentInActivity
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchMovieActivity : BaseActivity<ActivitySearchMovieBinding>(R.layout.activity_search_movie) {
 
