@@ -1,6 +1,6 @@
 package com.kestrel9.android.boostcamp.data
 
-import com.kestrel9.android.boostcamp.network.MovieResponse
+import com.kestrel9.android.boostcamp.network.Movie
 
 /**
  * BoostCamp
@@ -12,7 +12,7 @@ import com.kestrel9.android.boostcamp.network.MovieResponse
 interface SearchDataSource {
     fun getMovie(
             query: String,
-            success: (movieResponse: MovieResponse) -> Unit,
+            success: (listMovie: List<Movie>) -> Unit,
             failed: (errorCode: String) -> Unit
     )
 }
