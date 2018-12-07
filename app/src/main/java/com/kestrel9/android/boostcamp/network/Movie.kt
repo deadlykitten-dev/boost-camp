@@ -25,5 +25,5 @@ data class Movie(
     @SerializedName("title")
     val title: String,
     @SerializedName("userRating")
-    val userRating: String
+    val userRating: Float
 )

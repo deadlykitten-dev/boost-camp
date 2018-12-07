@@ -1,6 +1,10 @@
 package com.kestrel9.android.boostcamp.util
 
+import android.os.Build
+import android.text.Html
 import android.widget.ImageView
+import android.widget.RatingBar
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -29,5 +33,25 @@ fun ImageView.imageUrl(url: String?) {
         Glide.with(this)
             .load(url)
             .into(this)
+    }
+}
+
+
+@BindingAdapter(value = ["htmlText"])
+fun TextView.htmlText(str: String?) {
+    str?.let {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            this.text = Html.fromHtml(str, Html.FROM_HTML_MODE_LEGACY)
+        } else {
+            @Suppress("DEPRECATION")
+            this.text = Html.fromHtml(str)
+        }
+    }
+}
+
+@BindingAdapter(value = ["setUserRating"])
+fun RatingBar.setUserRating(rating: Float?) {
+    rating?.let {
+        this.rating = rating.div(2)
     }
 }

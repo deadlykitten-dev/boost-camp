@@ -17,4 +17,9 @@
         <item name="android:max">6</item>
     </style>
 
+    <style name="MovieImage">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">120dp</item>
+    </style>
+
 </resources>

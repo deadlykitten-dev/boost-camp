@@ -2,6 +2,7 @@ package com.kestrel9.android.boostcamp.searchMovie
 
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.kestrel9.android.boostcamp.BR
 import com.kestrel9.android.boostcamp.R
 import com.kestrel9.android.boostcamp.base.BaseFragment
@@ -32,9 +33,13 @@ class SearchMovieFragment : BaseFragment<FragmentSearchMovieBinding>(R.layout.fr
         binding.run {
             viewModel = searchModelViewModel
             setLifecycleOwner(activity)
-            rvListMovie.adapter = object : BaseRecyclerViewAdapter<Movie, ItemListMovieBinding>(
-                layoutRes = R.layout.item_list_movie,
-                bindingVarianceId = BR.movie) {}
+            rvListMovie.run {
+                adapter = object : BaseRecyclerViewAdapter<Movie, ItemListMovieBinding>(
+                    layoutRes = R.layout.item_list_movie,
+                    bindingVarianceId = BR.movie
+                ) {}
+                addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+            }
 
         }
     }
